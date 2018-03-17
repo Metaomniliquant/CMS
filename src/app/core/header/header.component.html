@@ -1,0 +1,8 @@
+<div class="header">
+  <div class="header-text">
+    {{text}}
+  </div>
+  <div class="header-theme">
+    <app-theme [themes]="themes" (onThemeChanged)="handleThemeChanged($event)"></app-theme>
+  </div>
+</div>

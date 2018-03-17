@@ -1,0 +1,57 @@
+@import "color";
+@import "structure";
+@import "skin";
+
+.generate-header() {
+    .generate-header-structure();
+    .generate-header-skin();
+
+    .header {
+        @header-structure();
+        @header-skin();
+    }
+}
+
+.generate-header-text() {
+    .generate-header-text-structure();
+    .generate-header-text-skin();
+
+    .header-text {
+        @header-text-structure();
+        @header-text-skin();
+    }
+}
+
+.generate-header-theme() {
+    .generate-header-theme-structure();
+    .generate-header-theme-skin();
+
+    .header-theme {
+        @header-theme-structure();
+        @header-theme-skin();
+    }
+}
+
+.generate-theme() {
+    .generate-theme-structure();
+    .generate-theme-skin();
+
+    .app-theme {
+        @theme-structure();
+        @theme-skin();
+
+        .theme-selector {
+            @theme-selector-structure();
+            @theme-selector-skin();
+        }
+    }
+}
+
+.generate-mono-header-component(@default, @light) {
+    .generate-mono-header-palette(@default, @light);
+
+    .generate-header();
+    .generate-header-text();
+    .generate-header-theme();
+    .generate-theme();
+}

@@ -1,0 +1,138 @@
+
+.generate-todo-skin() {
+    // default
+    @todo-skin: {
+        border-bottom-style: double;
+        border-bottom-color: @todo-color-dark;
+        background-color: @todo-color-light;
+    };
+
+    @todo-view-skin: {
+        background: transparent;
+    };
+
+    @todo-operation-skin: {
+        background: transparent;
+    };
+
+    @todo-action-skin: {
+        border-style: double;
+        border-color: @todo-color-light;
+        background-color: @todo-color-dark;
+    };
+
+    @todo-text-region-skin: {
+        background: transparent;
+    };
+
+    @todo-form-text-skin: {
+        background: transparent;
+    };
+
+    @todo-form-checkbox-skin: {
+        background: transparent;
+    };
+
+    @todo-form-input-skin: {
+        background: @todo-color-high-contrast;
+        color: @todo-color-dark;
+    };
+
+    @todo-form-textarea-skin: {
+        background: @todo-color-high-contrast;
+        color: @todo-color-dark;
+    };
+
+    // active
+    @todo-active-skin: {
+        background-color: @todo-color-dark;
+        border-style: solid;
+        border-color: @todo-color-light;
+        border-top: none;
+        box-shadow: inset 0 0 1px @todo-color-light;
+    };
+
+    @todo-active-view-skin: {
+        background: transparent;
+    };
+
+    @todo-active-operations-skin: {
+        background: transparent;
+    };
+
+    @todo-active-action-skin: {
+        border-color: @todo-color-dark;
+        background-color: @todo-color-light;
+    };
+}
+
+.generate-todo-detail-skin() {
+    @todo-detail-skin: {
+        background: transparent;
+    };
+
+    @todo-detail-header-skin: {
+        border-bottom-style: solid;
+        border-bottom-color: @todo-color-dark;
+    };
+
+    @todo-description-skin: {
+        background: transparent;
+    };
+
+    @todo-description-text-skin: {
+        white-space: pre-line;
+    };
+}
+
+.generate-todo-list-skin() {
+    @todo-list-skin: {
+        background-color: @todo-color-dark;
+        color: @todo-color-default;
+        box-shadow: 0 0 1px @todo-color-dark;
+    };
+
+    @todo-list-group-skin: {
+        background: transparent;
+    };
+
+    @todo-detail-pane-skin: {
+        background-color: @todo-color-high-contrast;
+        color: @todo-color-dark;
+        box-shadow: inset 0 0 1px @todo-color-dark;
+    };
+}
+
+.generate-todo-state-menu-skin() {
+    @todo-state-menu-skin: {
+        border-bottom-style: solid;
+        border-bottom-color: @todo-color-light;
+        box-shadow: 0 0 1px @todo-color-dark;
+        background-color: @todo-color-dark;
+        color: @todo-color-default;
+    };
+
+    @todo-menu-item-skin: {
+        cursor: pointer;
+        background-color: transparent;
+        outline: 0;
+    };
+
+    @todo-state-selected-skin: {
+        background-color: @todo-color-light;
+        box-shadow: 0 0 1px @todo-color-dark;
+    };
+
+    @todo-state-hover-skin: {
+        background-color: @todo-color-light;
+        box-shadow: 0 0 1px @todo-color-dark;
+    };
+
+    @todo-operation-hover-skin: {
+        background-color: @todo-color-light;
+        box-shadow: 0 0 1px @todo-color-dark;
+    };
+}
+
+
+
