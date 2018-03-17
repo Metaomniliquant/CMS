@@ -1,9 +1,9 @@
-var mongoose = require('mongoose');
-
-let todoSchema = new mongoose.Schema({
+"use strict";
+exports.__esModule = true;
+var mongoose = require("mongoose");
+var todoSchema = new mongoose.Schema({
     text: String,
     description: String,
     done: Boolean
 });
-
-module.exports = mongoose.model('Todo', todoSchema);
+exports.Todo = mongoose.model('Todo', todoSchema);
