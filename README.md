@@ -1,4 +1,4 @@
-# NG2 MEAN
+# CMS
 
 A Todo app to demostrate building an angular 2 app in the MEAN stack with the Angular CLI.
 
