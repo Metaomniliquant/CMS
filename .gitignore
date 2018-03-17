@@ -26,7 +26,7 @@ testem.log
 /typings
 
 # server
-/server/*.js
+/server/**/*.js
 
 # e2e
 /e2e/*.js
