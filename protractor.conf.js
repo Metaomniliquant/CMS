@@ -2,7 +2,7 @@
 // https://github.com/angular/protractor/blob/master/docs/referenceConf.js
 
 /*global jasmine */
-var SpecReporter = require('jasmine-spec-reporter');
+var SpecReporterModule = require('jasmine-spec-reporter');
 var Jasmine2HtmlReporter = require('protractor-jasmine2-html-reporter');
 
 exports.config = {
@@ -24,11 +24,12 @@ exports.config = {
   useAllAngular2AppRoots: true,
   beforeLaunch: function() {
     require('ts-node').register({
-      project: 'e2e'
+      noProject:true
     });
   },
   onPrepare: function() {
-    jasmine.getEnv().addReporter(new SpecReporter());
+    console.dir(SpecReporterModule.SpecReporter);
+    jasmine.getEnv().addReporter(new SpecReporterModule.SpecReporter());
     jasmine.getEnv().addReporter(
       new Jasmine2HtmlReporter({
         savePath: 'output/reporter/',

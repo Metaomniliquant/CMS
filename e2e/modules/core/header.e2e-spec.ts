@@ -25,7 +25,7 @@ describe('Core Header', () => {
     });
 
     it('should contain default heading text', async (done) => {
-        expect(await header.getHeaderText()).toBe('NG2 MEAN: TODO');
+        expect(await header.getHeaderText()).toBe('CMS: TODO');
         done();
     });
 

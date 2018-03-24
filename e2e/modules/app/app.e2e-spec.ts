@@ -9,7 +9,7 @@ describe('NG2 MEAN TODO app', function() {
   });
 
   it("should set the browser title", async (done) => {
-    expect(await page.getTitle()).toEqual('Mean TODO');
+    expect(await page.getTitle()).toEqual('CMS TODO');
     done();
   });
 
@@ -29,7 +29,7 @@ describe('NG2 MEAN TODO app', function() {
   });
 
   it("should bind app header text", async (done) => {
-    expect(await page.getAppHeaderBinding()).toBe('NG2 MEAN: TODO');
+    expect(await page.getAppHeaderBinding()).toBe('CMS: TODO');
     done();
   });
 

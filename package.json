@@ -41,6 +41,7 @@
     "@types/jasmine": "^2.8.6",
     "@types/mongoose": "^5.0.7",
     "@types/node": "^9.4.7",
+    "@types/protractor": "^4.0.0",
     "bootstrap": "^3.3.7",
     "codelyzer": "^4.2.1",
     "jasmine": "^2.9.0",
