@@ -7,11 +7,12 @@
     "prebuild": "tsc server/server.ts",
     "build": "ng build && node server.js",
     "e2e": "protractor",
-    "lint": "tslint \"src/**/*.ts\"",
+    "lint": "ng lint",
     "mongo": "call \"D:/Programs/MongoDB/bin/mongod.exe\" --dbpath \"C:/Users/AsusU/OneDrive/CMS/data/db\" ",
     "pree2e": "webdriver-manager update",
     "start": "ng serve --proxy-config proxy.conf.json",
-    "test": "ng test --sm=false"
+    "test-noCoverage": "ng test --sm=false",
+    "test": "ng test --code-coverage"
   },
   "private": true,
   "dependencies": {
@@ -50,6 +51,8 @@
     "karma": "^2.0.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-cli": "^1.0.1",
+    "karma-coverage": "^1.1.1",
+    "karma-coverage-istanbul-reporter": "^1.4.2",
     "karma-jasmine": "^1.1.1",
     "karma-remap-istanbul": "^0.6.0",
     "protractor": "^5.3.0",

@@ -10,9 +10,14 @@ exports.config = {
   specs: [
     './e2e/**/*.e2e-spec.ts'
   ],
-  capabilities: {
-    'browserName': 'chrome'
-  },
+  multiCapabilities: [
+    {
+      'browserName': 'chrome',
+      'chromeOptions': {
+        args: ['--headless']
+      }
+    }
+  ],
   directConnect: true,
   baseUrl: 'http://localhost:3000/',
   framework: 'jasmine',
@@ -29,6 +34,7 @@ exports.config = {
   },
   onPrepare: function() {
     console.dir(SpecReporterModule.SpecReporter);
+    console.dir(Jasmine2HtmlReporter);
     jasmine.getEnv().addReporter(new SpecReporterModule.SpecReporter());
     jasmine.getEnv().addReporter(
       new Jasmine2HtmlReporter({
