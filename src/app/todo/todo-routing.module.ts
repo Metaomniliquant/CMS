@@ -8,8 +8,6 @@ const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full'}
   , { path: 'list', component: TodoListComponent }
   , { path: ':id', component: TodoComponent }
-  // ,{ path: 'crisis', loadChildren: 'app/crisis/crisis.module#CrisisModule' }
-  // ,{ path: 'heroes', loadChildren: 'app/hero/hero.module#HeroModule' }
 ];
 
 @NgModule({

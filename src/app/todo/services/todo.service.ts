@@ -9,9 +9,9 @@ import { Todo } from './todo';
 @Injectable()
 export class TodoService extends HttpService {
 
-  constructor(private client: Http) {
+  constructor(private client: Http) { 
     super(client, {
-      baseUrl: "http://localhost:3000/api/",
+      baseUrl: "./api/",
       controller: "todo",
       headers: new Headers({'Content-Type': 'application/json'})
     });
