@@ -11,14 +11,16 @@ const log = debug("CMS:Server");
 
 export class ServerConfig {
     process: NodeJS.Process;
-    port: number;
+    fallbackPort: number;
     workingDirectory: string;
+    deployDirectory: string;
 
-    public static create(process: NodeJS.Process, port: number, workingDirectory: string) {
+    public static create(process: NodeJS.Process, fallbackPort: number, workingDirectory: string, deployDirectory: string) {
         const config = new ServerConfig();
         config.process = process;
-        config.port = port;
+        config.fallbackPort = fallbackPort;
         config.workingDirectory = workingDirectory;
+        config.deployDirectory = deployDirectory;
 
         return config;
     }
@@ -31,16 +33,19 @@ export class Server {
     private apiRouteHandler: express.Router;
 
     public static start(config: ServerConfig): Server {
-        return new Server(config.process, config.port, config.workingDirectory);
+        return new Server(config.process, config.fallbackPort, config.workingDirectory, config.deployDirectory);
     }
 
-    private constructor(private process: NodeJS.Process, private fallbackPort: number, private workingDirectory: string) {
+    private constructor(private process: NodeJS.Process, private fallbackPort: number, private workingDirectory: string, private deployDirectory: string) {
         this.connectDatabase();
+
         this.createApiHandler();
+
         this.createExpressApplication();
         this.configureApplication();
         this.configureRoutes();
         this.setApplicationPort();
+
         this.createServer();
         this.startListening();
     }
@@ -68,7 +73,7 @@ export class Server {
         this.app.use(bodyParser.urlencoded({ extended: false }));
 
         // Point static path to dist
-        this.app.use(express.static(this.workingDirectory));
+        this.app.use(express.static(this.getDeployPath()));
 
         this.app.use((req, res, next) => {
             res.header("Access-Control-Allow-Origin", "http://localhost:4200");
@@ -84,8 +89,17 @@ export class Server {
 
         // Catch all other routes and return the index file
         this.app.get('*', (req, res) => {
-            res.sendFile(path.join(this.workingDirectory, 'index.html'));
+            res.sendFile(this.getPathFromDeployPath('index.html'));
         });
+    }
+
+    private getPathFromDeployPath(target: string): string {
+        const deployDirectory = this.getDeployPath();
+        return path.join(deployDirectory, target);
+    }
+
+    private getDeployPath(): string {
+        return path.join(this.workingDirectory, this.deployDirectory)
     }
 
     private setApplicationPort() {
